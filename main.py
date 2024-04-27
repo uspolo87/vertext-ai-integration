@@ -62,10 +62,10 @@ app.add_middleware(
 # chat = model.start_chat(response_validation=False)
 
 @app.post("/")
-async def read_root():
+async def read_root(input):
     # print(input.prompt)
     # response = chat.send_message([input.prompt], generation_config=generation_config, safety_settings=safety_settings).text
-    print('working')
+    print('working',input)
     # return {"response": 'Hello world'}
 
 
