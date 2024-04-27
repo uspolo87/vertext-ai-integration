@@ -1,9 +1,9 @@
 import base64
-import vertexai
-from vertexai.generative_models import GenerativeModel, Part
-import vertexai.preview.generative_models as generative_models
+# import vertexai
+# from vertexai.generative_models import GenerativeModel, Part
+# import vertexai.preview.generative_models as generative_models
 from fastapi import FastAPI
-from pydantic import BaseModel
+# from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -44,22 +44,22 @@ For fees structure and further details, contact us at +917416199101 or email us 
 Join Hash Include today and embark on a transformative learning journey that will unlock your full potential and propel you towards a bright and prosperous future."""
 
 # system_instruction = [trainingData]
-vertexai.init(project="eighth-block-418817", location="us-central1")
-model =  GenerativeModel('gemini-1.0-pro-002', system_instruction=[trainingData])
-
-generation_config = {
-    "max_output_tokens":500,
-    "temperature": 0.1,
-    "top_p": 0.8,
-}
-
-safety_settings = {
-    generative_models.HarmCategory.HARM_CATEGORY_HATE_SPEECH: generative_models.HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    generative_models.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: generative_models.HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    generative_models.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: generative_models.HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    generative_models.HarmCategory.HARM_CATEGORY_HARASSMENT: generative_models.HarmBlockThreshold.BLOCK_ONLY_HIGH,
-}
-chat = model.start_chat(response_validation=False)
+# vertexai.init(project="eighth-block-418817", location="us-central1")
+# model =  GenerativeModel('gemini-1.0-pro-002', system_instruction=[trainingData])
+#
+# generation_config = {
+#     "max_output_tokens":500,
+#     "temperature": 0.1,
+#     "top_p": 0.8,
+# }
+#
+# safety_settings = {
+#     generative_models.HarmCategory.HARM_CATEGORY_HATE_SPEECH: generative_models.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+#     generative_models.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: generative_models.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+#     generative_models.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: generative_models.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+#     generative_models.HarmCategory.HARM_CATEGORY_HARASSMENT: generative_models.HarmBlockThreshold.BLOCK_ONLY_HIGH,
+# }
+# chat = model.start_chat(response_validation=False)
 
 @app.post("/")
 async def read_root(input):
